@@ -1,0 +1,12 @@
+keras
+keras-vis
+h5py
+scipy
+numpy
+pillow
+pandas
+scikit-learn
+tifffile
+imageio
+scikit-image
+tensorflow-gpu
