@@ -1,8 +1,8 @@
 =====================
-Vecchio-Group-Phase-2
+Electron-Diffraction-CNN
 =====================
 
-This is the documentation of **Vecchio-Group-Phase-2**.
+This is the documentation of **Electron-Diffraction-CNN**.
 
 .. note::
 
