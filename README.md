@@ -1,4 +1,4 @@
-# Vecchio-Group-Phase-2
+# Electron-Diffraction-CNN
 
 
 
