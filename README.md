@@ -92,7 +92,7 @@ usage: split_manifest.py [-h] [-ts TEST_SIZE] [-vs VAL_SIZE] [-s SEED]
                          [-sm {shuffle,stratified-shuffle}] [-o OUTPUT]
                          manifest label_column
 
-Produce an EBSD data manifest file from a root directory.
+Split the data in the manifest file into test, train, and validation.
 
 positional arguments:
   manifest              path/to/manifest.csv
@@ -162,47 +162,6 @@ python src/train.py XceptionClassifier manifest.csv Phase -e 1
 ```
 
 
-## `regression_train.py --help`
-```
-usage: regression_train.py [-h] [-bs BATCH_SIZE] [-e EPOCHS] [-md MIN_DELTA]
-                           [-p PATIENCE] [-o OUTPUT]
-                           {MultiLabelLinearRegressor,XceptionRegressor}
-                           manifest label_columns [label_columns ...]
-
-Train a Regression ML Model
-
-positional arguments:
-  {MultiLabelLinearRegressor,XceptionRegressor}
-                        The model to use for regression.
-  manifest              path/to/manifest.csv
-  label_columns         Column(s) name for label (y) from manifest file.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -bs BATCH_SIZE, --batch-size BATCH_SIZE
-                        Training batch size (default: 32)
-  -e EPOCHS, --epochs EPOCHS
-                        Number of epochs (default: 10000)
-  -md MIN_DELTA, --min-delta MIN_DELTA
-                        Minimum change int the monitored quantity to qualify
-                        as an improvement. Default: 0.001
-  -p PATIENCE, --patience PATIENCE
-                        Number of epochs with no improvement after which
-                        training will be stopped Default: 25
-  -o OUTPUT, --output OUTPUT
-                        (optional) path/to/output/directory/
-```
-
-Example usage: 
-
-```
-python src/regression_train.py MultiLabelLinearRegressor tests/test_regression.csv Lattice_a -e 1
-```
-
-```
-python src/regression_train.py XceptionRegressor tests/test_regression.csv Lattice_a Lattice_b Lattice_c -bs 128
-```
-
 ## `eval.py --help`
 
 ```
@@ -231,32 +190,6 @@ Example usage:
 python src/eval.py models/XceptionClassifier-0.0.0/2019-04-07-06-37/model_checkpoint.h5 manifest.csv Phase -o class_eval.csv
 ```
 
-## `regression_eval.py --help`
-```
-usage: regression_eval.py [-h] [-o OUTPUT] [-bs BATCH_SIZE]
-                          trained_model manifest label_columns
-                          [label_columns ...]
-
-Evaluate a Regression ML Model
-
-positional arguments:
-  trained_model         /path/to/model_checkpoint.h5
-  manifest              path/to/manifest.csv
-  label_columns         Column(s) name for label (y) from manifest file.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -o OUTPUT, --output OUTPUT
-                        (optional) path/to/output/directory/
-  -bs BATCH_SIZE, --batch-size BATCH_SIZE
-                        Training batch size (default: 32)
-```
-
-Example usage: 
-
-```
-python src/regression_eval.py models/XceptionRegressor-0.0.0/2019-04-07-06-37_small/model_checkpoint.h5 manifest.csv Lattice_a Lattice_b Lattice_c -o regress_eval.csv
-```
 
 # FAQ
 
