@@ -25,7 +25,7 @@ def setup_parser():
     parser.add_argument(
         '--version',
         action='version',
-        version='Vecchio-Group-Phase-2 {ver}'.format(ver=__version__))
+        version='Electron-Diffraction-CNN {ver}'.format(ver=__version__))
     parser.add_argument(
         '-v',
         '--verbose',
