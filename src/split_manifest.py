@@ -60,7 +60,7 @@ def make_parser(_parser: typing.Optional[argparse.ArgumentParser] = None) -> arg
         An argument parser that can process CLI args necessary for marking a manifest file.
     """
     if not _parser:
-        _parser = argparse.ArgumentParser(description='Produce an EBSD data manifest file from a root directory.')
+        _parser = argparse.ArgumentParser(description='Split the data in the manifest file into test, train, and validation.')
 
     _parser.add_argument('manifest',
                          type=str,
